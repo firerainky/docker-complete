@@ -33,3 +33,17 @@ To keep dependencies remaining in the container.
 `docker run --rm -d -v feedback:/app/feedback -v $(pwd):/app -v /app/node_modules  -p 3000:80 --name feedback-app feedback-node:volumes`
 
 This works because for volumes, the lonnger and more specific path wins.
+
+## Add read only volume
+
+`docker run --rm -d -v feedback:/app/feedback -v $(pwd):/app:ro -v /app/node_modules -v /app/temp  -p 3000:80 --name feedback-app feedback-node:volumes`
+
+## Create a volume manually
+
+`docker volume create XXX`
+
+This can help us create a named volume, but it's not necessary to do that.
+
+## Docker ignore file
+
+.dockerignore
