@@ -47,3 +47,13 @@ This can help us create a named volume, but it's not necessary to do that.
 ## Docker ignore file
 
 .dockerignore
+
+## Docker supports build-time ARGuments and runtime ENViroment variables
+
+## Add env variables into the docker run command
+
+`docker run --rm -d -v feedback:/app/feedback -v $(pwd):/app:ro -v /app/node_modules -v /app/temp --env PORT=8000 -p 3000:8000 --name feedback-app feedback-node:volumes`
+
+## Give a specific environment define file
+
+`docker run --rm -d -v feedback:/app/feedback -v $(pwd):/app:ro -v /app/node_modules -v /app/temp --env-file ./.env -p 3000:8000 --name feedback-app feedback-node:volumes`
